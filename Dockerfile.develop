@@ -4,8 +4,7 @@ WORKDIR /api
 
 COPY . .
 
-RUN pip install --no-cache-dir -r requirements.txt \
-    && apk add --no-cache \
+RUN apk add --no-cache \
     bash \
     curl \
     freetype-dev \
