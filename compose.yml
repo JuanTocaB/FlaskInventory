@@ -1,0 +1,29 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile.develop
+    volumes:
+      - .:/api
+    command: sh -c "python -m flask --app server.py run --host=0.0.0.0 --debug"
+    networks:
+      - inventory-network
+
+  server:
+    image: nginx:stable-alpine3.21-slim@sha256:39a9a15e0a81914a96fa9ffa980cdfe08e2e5e73ae3424f341ad1f470147c413
+    container_name: server
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - ./:/api
+      - ./nginx/:/etc/nginx/conf.d/
+    networks:
+      - inventory-network
+
+networks:
+  inventory-network:
+    driver: bridge

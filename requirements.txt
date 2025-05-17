@@ -1,4 +1,6 @@
 Flask
 graphene
-Flask-GraphQL
+graphql-core
 Flask-Cors
+python-dotenv
+requests
