@@ -38,11 +38,6 @@ docker-compose up -d
 5. El proyecto es una API RESTful, por lo que no tiene una interfaz gráfica. Para probar la API, puede usar herramientas como Postman o Insomnia. La API estará disponible en la siguiente URL:
 
 ```sh
-http://localhost:8080/api
+http://localhost:8080/graphql/
 ```
 
-Siendo el endpoint para obtener todos los productos:
-
-```sh
-http://localhost:8080/api/products
-```
