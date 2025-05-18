@@ -1,0 +1,28 @@
+FROM python:3.13.3-alpine3.21@sha256:452682e4648deafe431ad2f2391d726d7c52f0ff291be8bd4074b10379bb89ff
+
+WORKDIR /api
+
+COPY . .
+
+RUN apk add --no-cache \
+    bash \
+    curl \
+    freetype-dev \
+    git \
+    icu-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    libzip-dev \
+    nano \
+    oniguruma-dev \
+    unzip \
+    vim \
+    wget \
+    zip \
+    zlib-dev \
+    && git config --global --add safe.directory /api \
+    && addgroup -g 1000 appgroup \
+    && adduser -D -u 1000 -G appgroup appuser \
+    && chown -R appuser:appgroup /api
+
+USER appuser
