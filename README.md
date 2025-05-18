@@ -27,8 +27,6 @@ El proyecto esta dockerizado, por lo que para correrlo solo es necesario tener i
 
 ```sh
 APP_PORT=8080
-API_URL=https://fakestoreapi.com
-PRODUCTS_ENDPOINT=/products
 ```
 
 4. Ejecute el siguiente comando para construir y correr los contenedores de Docker:
