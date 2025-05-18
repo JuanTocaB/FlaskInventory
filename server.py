@@ -1,5 +1,5 @@
 from flask import Flask
-from routes.api import apiRoutes
+from routes.graphQL import graphqlRoutes
 
 app: Flask = Flask(__name__)
-app.register_blueprint(apiRoutes)
+app.register_blueprint(graphqlRoutes)
